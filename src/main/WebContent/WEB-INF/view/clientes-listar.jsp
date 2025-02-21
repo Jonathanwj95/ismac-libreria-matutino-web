@@ -45,7 +45,7 @@
 <tbody>
 <c:forEach var="item" items="${clientes}">
 <tr>
-<td>${item.idCliente}</td>
+<td class="idCliente">${item.idCliente}</td>
 <td>${item.cedula}</td>
 <td>${item.nombre}</td>
 <td>${item.apellido}</td>
@@ -53,8 +53,8 @@
 <td>${item.telefono}</td>
 <td>${item.correo}</td>
 <td>
-	<button class="btn btn-success" onClick="window.location.href='/ismac-libreria-matutino-web/clientes/findOne?idCliente=${item.idCliente}&opcion=1'; return false;">Actualizar</button>
-	<button class="btn btn-danger" onClick="window.location.href='/ismac-libreria-matutino-web/clientes/findOne?idCliente=${item.idCliente}&opcion=2'; return false;">Borrar</button>
+	<button class="btn btn-success actualizar-btn">Actualizar</button>
+	<button class="btn btn-danger borrar-btn">Borrar</button>
 </td>
 </tr>
 </c:forEach>
@@ -85,10 +85,46 @@
 			})
 		});
 		
-		$('#btnAgregar').on('click', function(){
-			window.location.href='${pageContext.request.contextPath}/clientes/findOne?opcion=1'; return false;
-			window.location.href='${pageContext.request.contextPath}/clientes/findOne?opcion=1'; return false;
-
+		$(document).ready(function(){
+		    // Evento para el botón de "Actualizar"
+		    $(".actualizar-btn").on("click", function() {
+		        // Obtener la fila <tr> que contiene el botón
+		        var row = $(this).closest("tr");
+		
+		        // Obtener el idCliente de la primera celda <td> de la fila
+		        var idCliente = row.find(".idCliente").text().trim();
+		
+		        // Verificar si el idCliente es válido
+		        if (idCliente && !isNaN(idCliente)) {
+		            var opcion = 1; // Siempre es 1 en este caso
+		            // Redirigir a la URL con los parámetros
+		            window.location.href = '${pageContext.request.contextPath}/clientes/findOne?idCliente=' + idCliente + '&opcion=' + opcion;
+		        } else {
+		            console.error("El idCliente no es válido.");
+		        }
+		    });
+		});
+		
+		
+		
+		$(document).ready(function(){
+		    // Evento para el botón de "Actualizar"
+		    $(".borrar-btn").on("click", function() {
+		        // Obtener la fila <tr> que contiene el botón
+		        var row = $(this).closest("tr");
+		
+		        // Obtener el idCliente de la primera celda <td> de la fila
+		        var idCliente = row.find(".idCliente").text().trim();
+		
+		        // Verificar si el idCliente es válido
+		        if (idCliente && !isNaN(idCliente)) {
+		            var opcion = 2; // Siempre es 2 en este caso
+		            // Redirigir a la URL con los parámetros
+		            window.location.href = '${pageContext.request.contextPath}/clientes/findOne?idCliente=' + idCliente + '&opcion=' + opcion;
+		        } else {
+		            console.error("El idCliente no es válido.");
+		        }
+		    });
 		});
 	</script>
 	
