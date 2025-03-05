@@ -103,7 +103,7 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table-es-MX.min.js"></script>
 	<script type="text/javascript">
 	
-	var $tabla1 = $('#tabla1');j
+	var $tabla1 = $('#tabla1');
 	$tabla1.bootstrapTable({
 		sortReset: true
 	});

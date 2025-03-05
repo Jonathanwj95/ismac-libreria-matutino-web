@@ -14,53 +14,56 @@
  
 <nav></nav>
 <section>
-	<div class="container" style="padding-top 5px;">
-		<h1>Clientes</h1>
-	</div>
+	<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Registro de Clientes</h2>
+        </div>
+        <div class="card-body">
+            <form action="add" method="Post">
+                <input type="hidden" id="idCliente" name="idCliente" value="${cliente.idCliente}" />
+
+                <div class="mb-3">
+                    <label for="cedula" class="form-label fw-bold">Cédula</label>
+                    <input class="form-control" type="text" id="cedula" name="cedula" value="${cliente.cedula}" required />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nombre" class="form-label fw-bold">Nombre</label>
+                        <input class="form-control" type="text" id="nombre" name="nombre" value="${cliente.nombre}" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="apellido" class="form-label fw-bold">Apellido</label>
+                        <input class="form-control" type="text" id="apellido" name="apellido" value="${cliente.apellido}" required />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="direccion" class="form-label fw-bold">Dirección</label>
+                    <input class="form-control" type="text" id="direccion" name="direccion" value="${cliente.direccion}" />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="telefono" class="form-label fw-bold">Teléfono</label>
+                        <input class="form-control" type="text" id="telefono" name="telefono" value="${cliente.telefono}" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="correo" class="form-label fw-bold">Correo</label>
+                        <input class="form-control" type="email" id="correo" name="correo" value="${cliente.correo}" required />
+                    </div>
+                </div>
+
+                <div class="text-end">
+                    <button class="btn btn-success px-4 me-2" type="submit"><i class="bi bi-save"></i> Guardar</button>
+                    <button class="btn btn-danger px-4 cancelar-btn"><i class="bi bi-x-circle"></i> Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 	
-	<div class="container">
-		<form action="add" method="Post">
- 
-	<input type="hidden" id="idCliente" name="idCliente" value="${cliente.idCliente}" />
-	
-	<div class="form-group">
-	<label for="cedula" class="form-Label">Cédula</label>
-	<input class="form-control" type="text" id="cedula" name="cedula" value="${cliente.cedula}" />
-	</div>
-	
-	<div class="form-group">
-	<label for="nombre" class="form-Label">Nombre</label>
-	<input class="form-control" type="text" id="nombre" name="nombre" value="${cliente.nombre}" />
-	</div>
-	
-	<div class="form-group">
-	<label for="apellido" class="form-Label">Apellido</label>
-	<input class="form-control" type="text" id="apellido" name="apellido" value="${cliente.apellido}" />
-	</div>
-	
-	<div class="form-group">
-	<label for="direccion" class="form-Label">Dirección</label>
-	<input class="form-control" type="text" id="direccion" name="direccion" value="${cliente.direccion}" />
-	</div>
-	
-	<div class="form-group">
-	<label for="telefono" class="form-Label">Telefono</label>
-	<input class="form-control" type="text" id="telefono" name="telefono" value="${cliente.telefono}" />
-	</div>
-	
-	<div class="form-group">
-	<label for="correo" class="form-Label">Correo</label>
-	<input class="form-control" type="text" id="correo" name="correo" value="${cliente.correo}" />
-	</div>	
-	
-	<div style="text-align:right; padding-top: 5px;">
-	<button class="btn btn-primary" type="submit">Guardar</button>
-	<button class="btn btn-primary cancelar-btn">Cancelar</button>
-	</div>
-	
-	</form>
-	</div>
- 
  
  
 </section>

@@ -20,15 +20,17 @@
 		</div>
 		
 		<div class="container">
-		<form class="needs-validation" novalidate action="add" method="post">
-		<input type="hidden" id="idLibro" name="idLibro" value="${libro.idLibro}" required>
-		<div class="invalid-feedback">
+		<form class="needs-validation" action="add" method="post" novalidate>
 		
-		</div>
+		<input type="hidden" id="idLibro" name="idLibro" value="${libro.idLibro}">
+		
 		
 		<div class="form-group">
 			<label class="form-label" for="titulo">Titulo</label>
 			<input class="form-control" type="text" id="titulo" name="titulo" value="${libro.titulo}" required>
+			<div class="invalid-feedback">
+				*
+			</div>
 		</div>
 		
 		
@@ -39,7 +41,7 @@
 		
 		<div class="form-group">
 			<label class="form-label" for="numPaginas">N° Páginas</label>
-			<input class="form-control" type="number" id="numPaginas" name="numPaginas" value="${libro.numPaginas}" required>
+			<input class="form-control" type="number" id="numPaginas" name="numPaginas" value="${libro.numPaginas}" required min="1">
 		</div>
 		
 		<div class="form-group">
@@ -89,7 +91,7 @@
 		
 		<div class="form-group">
 			<label class="form-label" for="precio">Precio</label>
-			<input class="form-control" type="text" id="precio" name="precio" value="${libro.precio}" required>
+			<input class="form-control" type="number" step="any" id="precio" name="precio" value="${libro.precio}" required>
 		</div>
 		
 		<div class="form-group">
@@ -117,7 +119,7 @@
 <button class="btn btn-primary w-100" type="submit">Guardar</button>
 </div>
 <div class="col-12 col-sm-6">
-<button class="btn btn-primary w-100" type="button">Cancelar</button>
+<button class="btn btn-primary cancelar-btn" type="button">Cancelar</button>
 </div>
 </div>
 			
@@ -151,26 +153,28 @@
 		});
 	 	
 	 	
-	 // Example starter JavaScript for disabling form submissions if there are invalid fields
-	 	(() => {
-	 	  'use strict'
 
-	 	  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-	 	  const forms = document.querySelectorAll('.needs-validation')
-
-	 	  // Loop over them and prevent submission
-	 	  Array.from(forms).forEach(form => {
-	 	    form.addEventListener('submit', event => {
-	 	      if (!form.checkValidity()) {
-	 	        event.preventDefault()
-	 	        event.stopPropagation()
-	 	      }
-
-	 	      form.classList.add('was-validated')
-	 	    }, false)
-	 	  })
-	 	})()
 	
+	 	
+	 	(function () {
+		    'use strict'
+		    // Obtener todos los formularios a los que se les aplicará la validación personalizada
+		    const forms = document.querySelectorAll('.needs-validation')
+		
+		    // Loop sobre ellos y evitar el envío si hay campos inválidos
+		    Array.from(forms).forEach(form => {
+		        form.addEventListener('submit', function (event) {
+		            if (!form.checkValidity()) {
+		                event.preventDefault() // Impide que el formulario se envíe si no es válido
+		                event.stopPropagation() // Detiene la propagación del evento
+		            }
+		
+		            form.classList.add('was-validated') // Aplica el estilo de validación
+		        }, false)
+		    })
+		})()
+
+	 	
 	</script>
 	 	
 </body>

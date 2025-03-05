@@ -25,7 +25,7 @@ public class Libro {
 	@Column(name = "editorial")
 	private String editorial;
 	@Column(name = "num_paginas")
-	private int numPaginas; 
+	private int numPaginas = 0; 
 	@Column(name = "edicion")
 	private String edicion;
 	@Column(name = "idioma")
