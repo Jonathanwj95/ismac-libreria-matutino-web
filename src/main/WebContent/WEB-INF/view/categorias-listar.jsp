@@ -5,83 +5,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-	<%-- <link href="${pageContex.request.contexPath}/resources/css/bootstrap.min.css" rel="stylesheet"> --%>
-	     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-         <link href="${pageContext.request.contextPath}/resources/css/bootstrap-table.min.css" rel="stylesheet">
-	
-	
+    <meta charset="UTF-8">
+    <title>Categorías - CoffeeShop Ismac</title>
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap-table.min.css" rel="stylesheet">
 </head>
 <body>
 
 <section>
+    <!-- Título de la página -->
+    <div class="container" style="padding-top: 10px">
+        <h1>Categorías</h1>
+    </div>
 
-	<div class="container" style="padding-top: 10px">
-		<h1> Categorias </h1>
-	</div>
-
-	<div class="container" style="text-align: center;">
-		<button  class="btn btn-primary" onClick="window.location.href='/ismac-libreria-web/clientes/findOne?opcion=1'; return false;">Agregar</button>
-	</div>
-	
-	<div  class="container table-responsive">
-	
-		<table
-			   id="tabla1"
-		 	   name="tabla1"
-		 	   data-search="True"
-		 	   data-pagination="True"
-		 	   data-height=600
-		 	   data-toogle="tabla"
-		 	   data-toolbar=".toolbar"
-		 	   class="table table-striped table-sm"
-		>
-			<thead>
-				<tr>
-					<th data-sortable="True">idCategoria</th>
-					<th data-sortable="True">categoria</th>
-					<th data-sortable="True">descripcion</th>
-					<th data-sortable="True">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var ="item" items= "${categorias}">
-					<tr>
-						<td>${item.idCategoria}</td>	
-						<td>${item.categoria}</td>
-						<td>${item.descripcion}</td>	
-						<td>
-							<button class="btn btn-success"  onClick="window.location.href='/ismac-libreria-web/categorias/findOne?opcion=1&idCategoria=${item.idCategoria}'">Actualizar</button>
-							<button class="btn btn-danger" onClick="window.location.href='/ismac-libreria-web/categorias/findOne?opcion=2&idCategoria=${item.idCategoria}'">Borrar</button>
-						</td>		
-					</tr>
-				</c:forEach>
-				
-			</tbody>
-		</table>	
-	</div>
-	
-	
+    <!-- Botón para agregar una nueva categoría -->
+    <div class="container" style="text-align: center;">
+        <button class="btn btn-primary" onClick="window.location.href='/ismac-libreria-matutino-web/categorias/findOne?idCategoria=2&opcion=1'; return false;">
+            Agregar
+        </button>
+    </div>
+    
+    <!-- Tabla de categorías -->
+    <div class="container table-responsive">
+        <table id="tabla1" name="tabla1" data-search="true" data-pagination="true" data-height="600" class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th data-sortable="true">ID</th>
+                    <th data-sortable="true">Categoría</th>
+                    <th data-sortable="true">Descripción</th>
+                    <th data-sortable="true">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="item" items="${categorias}">
+                    <tr>
+                        <td>${item.idCategoria}</td>
+                        <td>${item.categoria}</td>
+                        <td>${item.descripcion}</td>
+                        <td>
+                            <!-- Botón para actualizar -->
+                            <button class="btn btn-success" onClick="window.location.href='/ismac-libreria-web/categorias/findOne?opcion=2&idCategoria=${item.idCategoria}'">
+                                Actualizar
+                            </button>
+                            <!-- Botón para borrar -->
+                            <button class="btn btn-danger" onClick="window.location.href='/ismac-libreria-matutino-web/categorias/findOne?idCategoria=2&opcion=3'">
+                                Borrar
+                            </button>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
 </section>
 
 <footer>
-
+    <!-- Pie de página (opcional) -->
 </footer>
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table-es-MX.min.js"></script>
-	<script type="text/javascript">
-	
-		var $tabla1 = $('#tabla1')
-		$(function(){
-			$tabla1.bootstrapTable({ sortReset: true  
-				});
-		});
-	
-	</script>
+<!-- Scripts necesarios -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table-es-MX.min.js"></script>
+<script type="text/javascript">
+    var $tabla1 = $('#tabla1');
+    $(function() {
+        $tabla1.bootstrapTable({ sortReset: true });
+    });
+</script>
 </body>
 </html>
