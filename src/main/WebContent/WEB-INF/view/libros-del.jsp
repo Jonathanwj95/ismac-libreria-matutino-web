@@ -8,6 +8,45 @@
   <!-- Estilos de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .container {
+        max-width: 500px;
+    }
+    .modal-content {
+        border-radius: 10px;
+    }
+    .modal-header {
+        background-color: #dc3545;
+        color: white;
+    }
+    .modal-footer {
+        border-top: 1px solid #e9ecef;
+    }
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+    }
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+    .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+    }
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+    .text-center {
+        margin-top: 20px;
+    }
+    .modal-body {
+        font-size: 1.1rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -41,7 +80,6 @@
       Eliminar Libro
     </button>
   </div>
-
 </div>
 
 <!-- Scripts de Bootstrap -->
